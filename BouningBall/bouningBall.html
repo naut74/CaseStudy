@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouning Ball</title>
+    <style>
+        canvas {
+            background-color: #f0f0f0;
+            display: block;
+            margin: 0 auto;
+            border: 2px solid greenyellow;
+        }
+        button {
+            margin: 0 auto;
+            margin-top: 20px;
+            background-color: #4CAF50; /* Màu nền */
+            border: none; /* Xóa viền */
+            color: white; /* Màu chữ */
+            padding: 15px 32px; /* Khoảng cách bên trong */
+            text-align: center; /* Căn giữa chữ */
+            text-decoration: none; /* Xóa gạch chân */
+            display: inline-block; /* Định dạng kiểu khối */
+            font-size: 16px; /* Kích thước chữ */
+            cursor: pointer; /* Đổi con trỏ khi di chuột */
+            border-radius: 12px; /* Bo tròn góc */
+            transition: background-color 0.3s;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="600px"></canvas>
+    <button id="restartGame"">Reset Game</button>
+    <script src="script.js"></script>
+</body>
+</html>
