@@ -5,10 +5,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const scoreEl = document.getElementById("scoreEl");
-const startGameBtn = document.getElementById("StartGameBtn");
+const startGameBtn = document.getElementById("startGameBtn");
 const modelEl = document.getElementById("modelEl");
-const bigScoreEl = document.getElementById("bigScoreEl");
-
 // document.querySelector("#startGameBtn").click();
 
 class Player {
@@ -107,20 +105,12 @@ class Particle {
 
 const x = canvas.width / 2;
 const y = canvas.height / 2;
-// player.draw();
+const player = new Player(x, y, 20, 'white');
+player.draw();
 
-let player = new Player(x, y, 20, 'white');
-let projectiles = [];
-let enemies = [];
-let particles = [];
-
-function init() {
-    player = new Player(x, y, 20, 'white');
-    projectiles = [];
-    enemies = [];
-    particles = [];
-    score = 0;
-}
+const projectiles = [];
+const enemies = [];
+const particles = [];
 
 function spawnEnemies() {
     setInterval(() => {
@@ -183,7 +173,6 @@ function animate() {
         if(dist - (player.radius + enemy.radius) < 1) {
             cancelAnimationFrame(animationId);
             modelEl.style.display = 'flex';
-            bigScoreEl.innerHTML = score;
         }    
         projectiles.forEach((projectile, projectileIndex) => {
             const dist = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y) 
@@ -192,7 +181,7 @@ function animate() {
             if(dist - (projectile.radius + enemy.radius) < 1) {
                 
                 // remove enemy
-                // enemies.splice(index, 1);
+                enemies.splice(index, 1);
                 
                 // remove projectile
                 projectiles.splice(projectileIndex, 1);
@@ -254,7 +243,6 @@ addEventListener('click', (event) => {
 });
 
 startGameBtn.addEventListener('click', () => {
-    init();
     animate();
     spawnEnemies();
     modelEl.style.display = 'none';
