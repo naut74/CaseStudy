@@ -120,11 +120,13 @@ function init() {
     enemies = [];
     particles = [];
     score = 0;
+    scoreEl.innerHTML = score;
+    bigScoreEl.innerHTML = score;
 }
 
 function spawnEnemies() {
     setInterval(() => {
-        const radius = Math.random()*(30 - 7) + 7;
+        const radius = Math.random()*(30 - 10) + 10;
         let x;
         let y;
 
